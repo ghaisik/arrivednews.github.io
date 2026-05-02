@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Africa's leading eHailing and mobility publication. Breaking news, in-depth analysis, and regulatory updates across the continent." />
+  <meta name="keywords" content="eHailing Africa, ride-hailing news, Uber Africa, Bolt Africa, inDrive, driver news, mobility Africa" />
+  <meta property="og:title" content="ARRIVED | The eHailing Network News" />
+  <meta property="og:description" content="Africa's leading eHailing and mobility publication." />
+  <meta property="og:type" content="website" />
+  <title>ARRIVED | The eHailing Network News</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --blue: #29ABE2;
+      --blue-dark: #1a8abf;
+      --blue-glow: rgba(41, 171, 226, 0.15);
+      --charcoal: #0e0e0e;
+      --dark: #141414;
+      --card: #1a1a1a;
+      --card-hover: #222222;
+      --border: rgba(41, 171, 226, 0.2);
+      --text: #f0f0f0;
+      --muted: #888888;
+      --white: #ffffff;
+      --red-alert: #e63946;
+      --gold: #f4a300;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--charcoal);
+      color: var(--text);
+      font-family: 'Barlow', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--dark); }
+    ::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 2px; }
+
+    /* ─── TICKER ─── */
+    .ticker-bar {
+      background: var(--blue);
+      color: var(--charcoal);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      padding: 6px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .ticker-inner {
+      display: inline-block;
+      animation: ticker 35s linear infinite;
+    }
+    .ticker-inner span { margin: 0 40px; }
+    .ticker-label {
+      background: var(--charcoal);
+      color: var(--blue);
+      padding: 0 12px;
+      margin-right: 20px;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+    }
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ─── NAVIGATION ─── */
+    nav {
+      background: rgba(14, 14, 14, 0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .nav-logo img {
+      height: 42px;
+      width: auto;
+      filter: brightness(1.1);
+    }
+    .nav-tagline {
+      font-family: 'Barlow', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      color: var(--blue);
+      text-transform: uppercase;
+      display: none;
+    }
+    @media (min-width: 600px) { .nav-tagline { display: block; } }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 10px;
+      border-radius: 4px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); background: var(--blue-glow); }
+    .nav-subscribe {
+      background: var(--blue) !important;
+      color: var(--charcoal) !important;
+      padding: 8px 16px !important;
+      border-radius: 4px !important;
+      font-weight: 700 !important;
+    }
+    .nav-subscribe:hover { background: var(--blue-dark) !important; }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      background: var(--dark);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+      padding: 60px 24px;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(41,171,226,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    @media (min-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr 1fr; }
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(230, 57, 70, 0.15);
+      border: 1px solid var(--red-alert);
+      color: var(--red-alert);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 2px;
+      margin-bottom: 20px;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--red-alert);
+      border-radius: 50%;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+    .hero-headline {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(42px, 7vw, 80px);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .hero-headline span { color: var(--blue); }
+    .hero-deck {
+      font-family: 'Crimson Pro', serif;
+      font-size: 20px;
+      color: #bbb;
+      line-height: 1.5;
+      margin-bottom: 32px;
+      max-width: 520px;
+    }
+    .hero-meta {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 24px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--blue);
+      color: var(--charcoal);
+    }
+    .btn-primary:hover { background: var(--blue-dark); transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover { border-color: var(--blue); color: var(--blue); }
+    .btn-whatsapp {
+      background: #25D366;
+      color: var(--white);
+    }
+    .btn-whatsapp:hover { background: #1ebe5a; transform: translateY(-1px); }
+
+    .hero-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .hero-stat {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-stat::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--blue);
+    }
+    .stat-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      color: var(--blue);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ─── SECTION LAYOUT ─── */
+    section { padding: 64px 24px; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+    }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 0.05em;
+      color: var(--white);
+    }
+    .section-title span { color: var(--blue); }
+    .section-link {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--blue);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .section-link:hover { text-decoration: underline; }
+
+    /* ─── NEWS GRID ─── */
+    .news-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    @media (min-width: 600px) { .news-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 900px) { .news-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .news-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+      text-decoration: none;
+      display: block;
+    }
+    .news-card:hover {
+      border-color: var(--blue);
+      background: var(--card-hover);
+      transform: translateY(-3px);
+    }
+    .card-body { padding: 20px; }
+    .card-category {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .card-category.alert { color: var(--red-alert); }
+    .card-category.gold { color: var(--gold); }
+    .card-title {
+      font-family: 'Crimson Pro', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+    .card-excerpt {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .card-meta {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card-meta-dot { color: var(--border); }
+
+    /* ─── FEATURED STORY ─── */
+    .featured-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 32px;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .featured-card::before {
+      content: 'FEATURED';
+      position: absolute;
+      top: 20px;
+      right: -28px;
+      background: var(--blue);
+      color: var(--charcoal);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      padding: 4px 40px;
+      transform: rotate(45deg);
+    }
+    .featured-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(28px, 4vw, 44px);
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .featured-excerpt {
+      font-family: 'Crimson Pro', serif;
+      font-size: 18px;
+      color: #bbb;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    /* ─── MARKETS STRIP ─── */
+    .markets {
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 40px 24px;
+    }
+    .markets-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    @media (min-width: 600px) { .markets-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 900px) { .markets-grid { grid-template-columns: repeat(6, 1fr); } }
+    .market-pill {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 14px 16px;
+      text-align: center;
+      transition: all 0.2s;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .market-pill:hover { border-color: var(--blue); background: var(--blue-glow); }
+    .market-flag { font-size: 24px; margin-bottom: 6px; }
+    .market-name {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ─── ABOUT ─── */
+    .about { background: var(--dark); }
+    .about-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    @media (min-width: 768px) { .about-inner { grid-template-columns: 1fr 1fr; } }
+    .about-headline {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 5vw, 60px);
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+    .about-headline span { color: var(--blue); }
+    .about-body {
+      font-family: 'Crimson Pro', serif;
+      font-size: 18px;
+      color: #bbb;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .about-pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .pillar {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px;
+      background: var(--card);
+      border-left: 3px solid var(--blue);
+      border-radius: 0 6px 6px 0;
+    }
+    .pillar-icon { font-size: 20px; flex-shrink: 0; }
+    .pillar-text { font-size: 14px; color: var(--muted); }
+    .pillar-text strong { color: var(--text); display: block; margin-bottom: 2px; }
+
+    /* ─── SUBSCRIBE ─── */
+    .subscribe {
+      background: linear-gradient(135deg, rgba(41,171,226,0.1) 0%, rgba(14,14,14,0) 60%);
+      border-top: 1px solid var(--border);
+    }
+    .subscribe-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .subscribe-headline {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 6vw, 64px);
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .subscribe-headline span { color: var(--blue); }
+    .subscribe-sub {
+      font-family: 'Crimson Pro', serif;
+      font-size: 18px;
+      color: #bbb;
+      margin-bottom: 32px;
+    }
+    .subscribe-stat {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 48px;
+      color: var(--blue);
+      line-height: 1;
+    }
+    .subscribe-stat-label {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+    .social-row {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: all 0.2s;
+    }
+    .social-btn.wa { background: #25D366; color: #fff; }
+    .social-btn.wa:hover { background: #1ebe5a; }
+    .social-btn.ig { background: #E1306C; color: #fff; }
+    .social-btn.ig:hover { background: #c0225a; }
+    .social-btn.fb { background: #1877F2; color: #fff; }
+    .social-btn.fb:hover { background: #1465d8; }
+
+    /* ─── MASTHEAD ─── */
+    .masthead {
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      padding: 48px 24px;
+    }
+    .masthead-inner { max-width: 1200px; margin: 0 auto; }
+    .masthead-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.1em;
+      color: var(--blue);
+      margin-bottom: 24px;
+    }
+    .masthead-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    @media (min-width: 600px) { .masthead-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 900px) { .masthead-grid { grid-template-columns: repeat(4, 1fr); } }
+    .masthead-member {
+      padding: 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+    .member-role {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 4px;
+    }
+    .member-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+    .member-location {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* ─── CONTACT ─── */
+    .contact { background: var(--charcoal); }
+    .contact-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    @media (min-width: 768px) { .contact-inner { grid-template-columns: 1fr 1fr; } }
+    .contact-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .contact-text { font-size: 15px; color: var(--muted); margin-bottom: 20px; line-height: 1.7; }
+    .contact-email {
+      display: inline-block;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--blue);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 4px;
+    }
+    .contact-email:hover { border-color: var(--blue); }
+    .contact-form {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px;
+    }
+    .form-group { margin-bottom: 16px; }
+    .form-label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .form-input, .form-textarea {
+      width: 100%;
+      background: var(--charcoal);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text);
+      font-family: 'Barlow', sans-serif;
+      font-size: 14px;
+      padding: 10px 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-input:focus, .form-textarea:focus { border-color: var(--blue); }
+    .form-textarea { resize: vertical; min-height: 100px; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #080808;
+      border-top: 1px solid var(--border);
+      padding: 40px 24px 24px;
+    }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    .footer-brand img { height: 40px; margin-bottom: 8px; }
+    .footer-mission {
+      font-size: 13px;
+      color: var(--muted);
+      max-width: 300px;
+      line-height: 1.6;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: 8px; }
+    .footer-link-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 4px;
+    }
+    .footer-link {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-link:hover { color: var(--white); }
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .footer-copy span { color: var(--blue); }
+
+    /* ─── ANIMATIONS ─── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── ALERT BANNER ─── */
+    .alert-banner {
+      background: rgba(230, 57, 70, 0.1);
+      border: 1px solid var(--red-alert);
+      border-radius: 6px;
+      padding: 14px 20px;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .alert-banner-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--red-alert);
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    .alert-banner-text {
+      font-size: 14px;
+      color: var(--text);
+    }
+    .alert-banner-text strong { color: var(--red-alert); }
+  </style>
+</head>
+<body>
+
+  <!-- BREAKING TICKER -->
+  <div class="ticker-bar">
+    <div class="ticker-inner">
+      <span><span class="ticker-label">BREAKING</span> AUATON deadline expires, no platform response, new strike imminent</span>
+      <span>|</span>
+      <span>UberX confirmed dead in Gauteng from 1 September 2026</span>
+      <span>|</span>
+      <span>Kenya High Court suspends NTSA algorithmic fines system</span>
+      <span>|</span>
+      <span>Bolt vs NTSA standoff intensifies in Nairobi</span>
+      <span>|</span>
+      <span>Morocco drivers petition for legal recognition</span>
+      <span>|</span>
+      <span>Brent crude above $107 per barrel, Africa's drivers pay the price</span>
+      <span>|</span>
+      <!-- Duplicate for seamless loop -->
+      <span><span class="ticker-label">BREAKING</span> AUATON deadline expires, no platform response, new strike imminent</span>
+      <span>|</span>
+      <span>UberX confirmed dead in Gauteng from 1 September 2026</span>
+      <span>|</span>
+      <span>Kenya High Court suspends NTSA algorithmic fines system</span>
+      <span>|</span>
+      <span>Bolt vs NTSA standoff intensifies in Nairobi</span>
+      <span>|</span>
+      <span>Morocco drivers petition for legal recognition</span>
+      <span>|</span>
+      <span>Brent crude above $107 per barrel, Africa's drivers pay the price</span>
+      <span>|</span>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <img src="assets/logo.png" alt="ARRIVED Logo" />
+        <span class="nav-tagline">The eHailing Network News</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#news">News</a></li>
+        <li><a href="#markets">Markets</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="https://whatsapp.com/channel/0029Vb4BAzV2P59pW5mWxB3G" target="_blank" class="nav-subscribe">Subscribe</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="fade-in">
+        <div class="hero-badge">Live Coverage</div>
+        <h1 class="hero-headline">
+          Africa's<br /><span>eHailing</span><br />Newsroom
+        </h1>
+        <p class="hero-deck">
+          Breaking news, in-depth analysis, and regulatory updates from the continent's most dynamic industry. We are the voice drivers never had.
+        </p>
+        <div class="hero-cta">
+          <a href="https://whatsapp.com/channel/0029Vb4BAzV2P59pW5mWxB3G" target="_blank" class="btn btn-whatsapp">
+            Join on WhatsApp
+          </a>
+          <a href="#news" class="btn btn-outline">Read Latest</a>
+        </div>
+      </div>
+      <div class="hero-stat-grid fade-in">
+        <div class="hero-stat">
+          <div class="stat-number">501+</div>
+          <div class="stat-label">WhatsApp Subscribers</div>
+        </div>
+        <div class="hero-stat">
+          <div class="stat-number">7</div>
+          <div class="stat-label">African Markets Covered</div>
+        </div>
+        <div class="hero-stat">
+          <div class="stat-number">R7B</div>
+          <div class="stat-label">SA eHailing Market Size</div>
+        </div>
+        <div class="hero-stat">
+          <div class="stat-number">2026</div>
+          <div class="stat-label">Year of Reckoning</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MARKETS STRIP -->
+  <div class="markets" id="markets">
+    <div class="markets-grid">
+      <a href="#" class="market-pill">
+        <div class="market-flag">🇿🇦</div>
+        <div class="market-name">South Africa</div>
+      </a>
+      <a href="#" class="market-pill">
+        <div class="market-flag">🇳🇬</div>
+        <div class="market-name">Nigeria</div>
+      </a>
+      <a href="#" class="market-pill">
+        <div class="market-flag">🇰🇪</div>
+        <div class="market-name">Kenya</div>
+      </a>
+      <a href="#" class="market-pill">
+        <div class="market-flag">🇪🇬</div>
+        <div class="market-name">Egypt</div>
+      </a>
+      <a href="#" class="market-pill">
+        <div class="market-flag">🇲🇦</div>
+        <div class="market-name">Morocco</div>
+      </a>
+      <a href="#" class="market-pill">
+        <div class="market-flag">🌍</div>
+        <div class="market-name">Pan-Africa</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- NEWS SECTION -->
+  <section id="news">
+    <div class="section-inner">
+
+      <div class="alert-banner fade-in">
+        <div class="alert-banner-dot"></div>
+        <div class="alert-banner-text">
+          <strong>WORKERS DAY WATCH:</strong> AUATON's April deadline has expired. Nigerian drivers await platform response. Strike could be called any moment. ARRIVED is monitoring in real time.
+        </div>
+      </div>
+
+      <!-- FEATURED -->
+      <div class="featured-card fade-in">
+        <div class="card-category alert">🚨 Breaking | Nigeria</div>
+        <h2 class="featured-title">The Morning After, AUATON's Deadline Has Expired and the Platforms Said Nothing</h2>
+        <p class="featured-excerpt">
+          The union gave Uber, Bolt and inDrive until end of April 2026 to resolve driver grievances. That deadline expired. Workers Day came and went. Not one platform issued a public statement confirming any resolution.
+        </p>
+        <div class="hero-cta">
+          <a href="https://whatsapp.com/channel/0029Vb4BAzV2P59pW5mWxB3G" target="_blank" class="btn btn-whatsapp">Read on WhatsApp</a>
+          <span style="font-size:12px;color:var(--muted);align-self:center;">Lagos, Nigeria, 2 May 2026, Emeka Oduya</span>
+        </div>
+      </div>
+
+      <!-- NEWS GRID -->
+      <div class="section-header">
+        <h2 class="section-title">Latest <span>Stories</span></h2>
+        <a href="https://whatsapp.com/channel/0029Vb4BAzV2P59pW5mWxB3G" target="_blank" class="section-link">All Stories</a>
+      </div>
+
+      <div class="news-grid">
+
+        <a href="https://whatsapp.com/channel/0029Vb4BAzV2P59pW5mWxB3G" target="_blank" class="news-card fade-in">
+          <div class="card-body">
+            <div class="card-category alert">Industry Alert, South Africa</div>
+            <h3 class="card-title">UberX Is Dead in Gauteng. Drivers Are Asking, Where Do We Go Now?</h3>
+            <p class="card-excerpt">Uber has confirmed it will phase out UberX from 1 September 2026. Tens of thousands of drivers received an email. No transition plan was attached.</p>
+            <div class="card-meta">
+              <span>Naledi Dlamini</span>
+              <span class="card-meta-dot">|</span>
+              <span>Johannesburg</span>
+              <span class="card-meta-dot">|</span>
+              <span>2 May 2026</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://whatsapp.com/channel/0029Vb4BAzV2P59pW5mWxB3G" target="_blank" class="news-card fade-in">
+          <div class="card-body">
+            <div class="card-category">Special Report, Kenya</div>
+            <h3 class="card-title">The Algorithm on Trial. Kenya's Courts Are Asking a Question Every Driver Needs to Hear</h3>
+            <p class="card-excerpt">Nairobi's High Court suspended NTSA's automated fines system. Can an algorithm punish you without due process? The answer matters beyond traffic fines.</p>
+            <div class="card-meta">
+              <span>Achieng Otieno</span>
+              <span class="card-meta-dot">|</span>
+              <span>Nairobi</span>
+              <span class="card-meta-dot">|</span>
+              <span>2 May 2026</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://whatsapp.com/channel/0029Vb4BAzV2P59pW5mWxB3G" target="_blank" class="news-card fade-in">
+          <div class="card-body">
+            <div class="card-category gold">Field Report, Morocco</div>
+            <h3 class="card-title">Something Is Moving in Morocco. A Country Where Ride-Hailing Is Banned but Everyone Uses It</h3>
+            <p class="card-excerpt">Over 1,000 drivers have formally petitioned for legal recognition. They are not hiding anymore. They are demanding to come out of the shadows.</p>
+            <div class="card-meta">
+              <span>Yasmine Belkadi</span>
+              <span class="card-meta-dot">|</span>
+              <span>Casablanca</span>
+              <span class="card-meta-dot">|</span>
+              <span>2 May 2026</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://whatsapp.com/channel/0029Vb4BAzV2P59pW5mWxB3G" target="_blank" class="news-card fade-in">
+          <div class="card-body">
+            <div class="card-category alert">Special Report, Pan-Africa</div>
+            <h3 class="card-title">The War Tax. How the Middle East Conflict Is Draining Africa's Drivers Dry</h3>
+            <p class="card-excerpt">Oil above $107 per barrel. Petrol up R3.06 in South Africa. Nigeria at N1,261 per litre. Nairobi at Sh197.60. The platforms? Mostly silent.</p>
+            <div class="card-meta">
+              <span>ARRIVED Desk</span>
+              <span class="card-meta-dot">|</span>
+              <span>Pan-Africa</span>
+              <span class="card-meta-dot">|</span>
+              <span>21 April 2026</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://whatsapp.com/channel/0029Vb4BAzV2P59pW5mWxB3G" target="_blank" class="news-card fade-in">
+          <div class="card-body">
+            <div class="card-category">Regulatory, South Africa</div>
+            <h3 class="card-title">Bolt Becomes First Major Platform to Register Under South Africa's New Transport Law</h3>
+            <p class="card-excerpt">On 27 February 2026, the NPTR issued Bolt its Certificate of Registration. Uber and inDrive were still pending as the 11 March deadline arrived.</p>
+            <div class="card-meta">
+              <span>Naledi Dlamini</span>
+              <span class="card-meta-dot">|</span>
+              <span>Johannesburg</span>
+              <span class="card-meta-dot">|</span>
+              <span>4 March 2026</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://whatsapp.com/channel/0029Vb4BAzV2P59pW5mWxB3G" target="_blank" class="news-card fade-in">
+          <div class="card-body">
+            <div class="card-category alert">Crime, South Africa</div>
+            <h3 class="card-title">Maponya Mall Attack, Driver Siyanda Mvelase, 27, Killed. A Pattern That Will Not Stop</h3>
+            <p class="card-excerpt">The same location. The same horror. 8 April 2026 repeated what happened on 13 August 2025. One driver dead. Two injured. Vehicles torched. No arrests.</p>
+            <div class="card-meta">
+              <span>Naledi Dlamini</span>
+              <span class="card-meta-dot">|</span>
+              <span>Soweto</span>
+              <span class="card-meta-dot">|</span>
+              <span>8 April 2026</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="section-inner">
+      <div class="about-inner">
+        <div class="fade-in">
+          <h2 class="about-headline">Built for the<br /><span>Driver</span><br />Not the Platform</h2>
+          <p class="about-body">
+            ARRIVED was founded by Benjamin Chinyere Izuchukwu Ogojiaku in Lagos, Nigeria, with one clear mission: to give Africa's eHailing drivers a united voice in the media.
+          </p>
+          <p class="about-body">
+            Most drivers lack the platforms to speak for themselves. Governments make decisions without hearing them. Platforms set fares without consulting them. We change that. Every story we publish, every driver we quote, every platform we hold accountable, is in service of the people who keep Africa moving.
+          </p>
+          <a href="https://whatsapp.com/channel/0029Vb4BAzV2P59pW5mWxB3G" target="_blank" class="btn btn-primary">Follow Our Coverage</a>
+        </div>
+        <div class="about-pillars fade-in">
+          <div class="pillar">
+            <span class="pillar-icon">🎙️</span>
+            <div class="pillar-text">
+              <strong>Driver Voice First</strong>
+              Every story starts with what drivers actually experience, not what platforms say they experience.
+            </div>
+          </div>
+          <div class="pillar">
+            <span class="pillar-icon">🌍</span>
+            <div class="pillar-text">
+              <strong>Pan-African Coverage</strong>
+              We cover Nigeria, South Africa, Kenya, Egypt, Morocco, Ghana, Uganda, Zimbabwe and beyond.
+            </div>
+          </div>
+          <div class="pillar">
+            <span class="pillar-icon">⚖️</span>
+            <div class="pillar-text">
+              <strong>Platform Accountability</strong>
+              We file formal media enquiries, we report responses, and we report silence equally.
+            </div>
+          </div>
+          <div class="pillar">
+            <span class="pillar-icon">📲</span>
+            <div class="pillar-text">
+              <strong>Mobile First, Always</strong>
+              Built for drivers on their phones between trips. Fast, clear, and designed for real people.
+            </div>
+          </div>
+          <div class="pillar">
+            <span class="pillar-icon">🔍</span>
+            <div class="pillar-text">
+              <strong>Editorial Independence</strong>
+              No platform pays for our editorial. No government directs our coverage. We answer to our readers.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MASTHEAD -->
+  <div class="masthead">
+    <div class="masthead-inner">
+      <h3 class="masthead-title">THE ARRIVED TEAM</h3>
+      <div class="masthead-grid">
+        <div class="masthead-member">
+          <div class="member-role">Founder</div>
+          <div class="member-name">Benjamin Ogojiaku</div>
+          <div class="member-location">Lagos, Nigeria</div>
+        </div>
+        <div class="masthead-member">
+          <div class="member-role">Editor-in-Chief</div>
+          <div class="member-name">Kwame Asante-Mensah</div>
+          <div class="member-location">Accra, Ghana</div>
+        </div>
+        <div class="masthead-member">
+          <div class="member-role">SA Correspondent</div>
+          <div class="member-name">Naledi Dlamini</div>
+          <div class="member-location">Johannesburg, SA</div>
+        </div>
+        <div class="masthead-member">
+          <div class="member-role">West Africa Correspondent</div>
+          <div class="member-name">Emeka Oduya</div>
+          <div class="member-location">Lagos, Nigeria</div>
+        </div>
+        <div class="masthead-member">
+          <div class="member-role">East Africa Correspondent</div>
+          <div class="member-name">Achieng Otieno</div>
+          <div class="member-location">Nairobi, Kenya</div>
+        </div>
+        <div class="masthead-member">
+          <div class="member-role">North Africa Correspondent</div>
+          <div class="member-name">Yasmine Belkadi</div>
+          <div class="member-location">Cairo, Egypt</div>
+        </div>
+        <div class="masthead-member">
+          <div class="member-role">Driver Liaison</div>
+          <div class="member-name">Sipho Radebe</div>
+          <div class="member-location">Soweto, South Africa</div>
+        </div>
+        <div class="masthead-member">
+          <div class="member-role">Head of PR & Comms</div>
+          <div class="member-name">Faridah Nakato</div>
+          <div class="member-location">Kampala, Uganda</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBSCRIBE -->
+  <section class="subscribe" id="subscribe">
+    <div class="subscribe-inner fade-in">
+      <h2 class="subscribe-headline">Join <span>501</span> Readers Already Inside</h2>
+      <p class="subscribe-sub">Africa's eHailing drivers, regulators, platform executives, and industry watchers get ARRIVED first. Free, on WhatsApp, every week.</p>
+      <div class="social-row">
+        <a href="https://whatsapp.com/channel/0029Vb4BAzV2P59pW5mWxB3G" target="_blank" class="social-btn wa">
+          WhatsApp Channel
+        </a>
+        <a href="https://www.instagram.com/arrivednews?igsh=NHg2a29sMzdmMHox" target="_blank" class="social-btn ig">
+          Instagram
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61588561869969" target="_blank" class="social-btn fb">
+          Facebook
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="section-inner">
+      <div class="contact-inner">
+        <div class="fade-in">
+          <h2 class="contact-title">Got a Story?</h2>
+          <p class="contact-text">
+            Are you a driver with a story that needs to be told? A regulator with information the industry should know? A platform with a response to our coverage? We want to hear from you.
+          </p>
+          <p class="contact-text">
+            ARRIVED protects its sources. Your identity will never be published without your explicit consent.
+          </p>
+          <a href="mailto:arrivednews@gmail.com" class="contact-email">arrivednews@gmail.com</a>
+          <br /><br />
+          <p style="font-size:13px;color:var(--muted);">Media enquiries, partnerships, and advertising: same address.</p>
+        </div>
+        <div class="contact-form fade-in">
+          <div class="form-group">
+            <label class="form-label">Your Name</label>
+            <input type="text" class="form-input" placeholder="Your full name" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Your Country</label>
+            <input type="text" class="form-input" placeholder="Nigeria, South Africa, Kenya..." />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email or WhatsApp</label>
+            <input type="text" class="form-input" placeholder="How can we reach you?" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Your Story or Message</label>
+            <textarea class="form-textarea" placeholder="Tell us what is happening. We are listening."></textarea>
+          </div>
+          <a href="mailto:arrivednews@gmail.com" class="btn btn-primary" style="width:100%;justify-content:center;">
+            Send to ARRIVED
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="assets/logo.png" alt="ARRIVED" />
+          <p class="footer-mission">Africa's leading eHailing and mobility publication. Breaking news, in-depth analysis, and regulatory updates across the continent.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-link-title">Coverage</div>
+          <a href="#" class="footer-link">South Africa</a>
+          <a href="#" class="footer-link">Nigeria</a>
+          <a href="#" class="footer-link">Kenya</a>
+          <a href="#" class="footer-link">Egypt</a>
+          <a href="#" class="footer-link">Morocco</a>
+        </div>
+        <div class="footer-links">
+          <div class="footer-link-title">Publication</div>
+          <a href="#about" class="footer-link">About ARRIVED</a>
+          <a href="#contact" class="footer-link">Contact Us</a>
+          <a href="mailto:arrivednews@gmail.com" class="footer-link">Media Enquiries</a>
+          <a href="#subscribe" class="footer-link">Subscribe</a>
+        </div>
+        <div class="footer-links">
+          <div class="footer-link-title">Follow Us</div>
+          <a href="https://whatsapp.com/channel/0029Vb4BAzV2P59pW5mWxB3G" target="_blank" class="footer-link">WhatsApp Channel</a>
+          <a href="https://www.instagram.com/arrivednews?igsh=NHg2a29sMzdmMHox" target="_blank" class="footer-link">Instagram</a>
+          <a href="https://www.facebook.com/profile.php?id=61588561869969" target="_blank" class="footer-link">Facebook</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">
+          2026 <span>ARRIVED</span>, The eHailing Network News. Founded in Lagos, Nigeria. Pan-African by design.
+        </div>
+        <div>
+          Media enquiries: <a href="mailto:arrivednews@gmail.com" style="color:var(--blue);text-decoration:none;">arrivednews@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Fade-in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Smooth nav highlight
+    const sections = document.querySelectorAll('section[id], div[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (window.scrollY >= sectionTop) current = section.getAttribute('id');
+      });
+      navLinks.forEach(link => {
+        link.style.color = '';
+        if (link.getAttribute('href') === '#' + current) {
+          link.style.color = 'var(--blue)';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
